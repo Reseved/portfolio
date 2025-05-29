@@ -1,5 +1,2 @@
-//используются символы перевода строки LF (Line Feed, Unix-стиль), 
-но Git на Windows сконфигурирован так, что при следующем действии 
-(checkout, commit, и т.д.) переведёт их в CRLF (Carriage Return + Line Feed — стиль Windows).
 
 * text=auto
