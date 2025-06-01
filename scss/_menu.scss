@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'config';
 
 // Metu Button
@@ -66,7 +67,7 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken(config.$primary-color, 5);
+    background: color.adjust(config.$primary-color, $lightness: -5%);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     @include config.easeOut;
@@ -93,7 +94,7 @@
     .portrait{
       width: 250px;
       height: 250px;
-      background: url(../img/IMG.JPG);
+      background: url(../img/portrait.jpg);
       border-radius: 50%;
       border: solid 3px config.$secondary-color;
       
@@ -128,7 +129,7 @@
 
     &:hover {
       color: config.$secondary-color;
-      @include config.easeOut;
+  
     }
   }
 }
