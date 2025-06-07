@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $primary-color: #444;
 $secondary-color: #eece1a;
 $show-home-image: true;
@@ -11,6 +13,7 @@ $background-opacity: 0.9;
 @mixin background {
   @if $show-home-image {
     &#bg-img {
+      position: relative;
       background: $home-image;
       background-attachment: fixed;
       background-size: cover;
@@ -29,26 +32,42 @@ $background-opacity: 0.9;
   }
 }
 
+//Set Text Color
+@function set-text-color($color) {
+  @if (color.channel($color, 'lightness', $space: hsl) > 40) {
+    @return #000; // dark text for light backgrounds
+  } @else {
+    @return #fff; // light text for dark backgrounds
+
+    //color.channel($color, "lightness", $space: hsl) — извлекает 
+    //значение светлоты из цвета, как раньше lightness($color), 
+    //но современным способом.
+
+    //$space: hsl указывает, что цвет должен быть преобразован в 
+    //HSL-пространство, чтобы можно было получить "lightness".
+  }
+}
+
 // media query mixins
-@mixin mediaSm{
+@mixin mediaSm {
   @media screen and (max-width: 500px) {
     @content;
   }
 }
 
-@mixin mediaMd{
+@mixin mediaMd {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
 
-@mixin mediaLg{
+@mixin mediaLg {
   @media screen and (min-width: 769px) and (max-width: 1170px) {
     @content;
   }
 }
 
-@mixin mediaXl{
+@mixin mediaXl {
   @media screen and (min-width: 1171px) {
     @content;
   }
