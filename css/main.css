@@ -180,6 +180,9 @@
   body .projects {
     grid-template-columns: repeat(1, 1fr);
   }
+  body .boxes div {
+    font-size: 5vw;
+  }
 }
 * {
   box-sizing: border-box;
